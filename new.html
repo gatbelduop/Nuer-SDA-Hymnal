@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuer SDA Hymnal</title>
+    <link rel="stylesheet" href="new.css">
+    <link rel="icon" href="Sdaicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.googleapis.com/webfonts/v1/webfonts?subset=subset_name">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <logo class="logo">
+                <img src="Sdaicon.png" alt="SDA Hymnal Logo" class="logo-img">
+            </logo>
+
+            <h1><i class="fas fa-book-hymnal"></i>Nuer SDA Hymnal</h1>
+
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="#" data-page="home">Home</a></li>
+                    <li><a href="#" data-page="hymns">Hymns</a></li>
+                    <li><a href="#" data-page="about">About</a></li>
+                    <li><a href="#" data-page="settings">Settings</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" id="global-search" placeholder="Search hymns...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Hamburger button -->
+            <button id="hamburger" class="hamburger">&#9776;</button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Home Page -->
+        <section id="home-page" class="page active">
+            <div class="hero">
+                <h2>Welcome to the Nuer SDA Hymnal</h2>
+                <p>Explore a collection of traditional and contemporary hymns.</p>
+                <button id="explore-btn">We̱r Rɛy Di̠n Diaal</button>
+            </div>
+            <div class="featured-hymn">
+                <h3>Kɛɛt Diit Cia̱ŋ Ɛ Wälɛ</h3>
+                <div class="hymn-card">
+                    <h5>3. A Puɔny Te̱e̱ Ji̠ Mi̠ Ci̠ Nhial Cak</h5>
+                    <p>1. A puɔny te̱e̱ Ji̠n mi̠ ci̠ nhial cak kɛnɛ piny, Cuŋku diaal tin gɔw kɛn nyuɔth kɛ Gɔɔydu. A puɔny te̱e̱ Ji̠n mi̠ ci̠ nhial cak kɛnɛ piny, mi̠ ci̠ nhial cak puɔny kɛɛliw ɛ Duŋdu.<br><br>Puɔny kɛɛliw ɛ Duŋdu Kuothdä min gɔaa, puɔny kɛɛliw ɛ Duŋdu. Nhök ɛ Duŋdu. Buɔ̱m ɛ Duŋdu. Gɔɔy ɛ Duŋdu Kuoth. ŋɔaani̠ diaal wi̠i̠ muɔ̱ɔ̱n kɛ Nyinku. <br><br> 2. A puɔny te̱e̱ Ji̠n mi̠ ci̠ nhial cak kɛnɛ piny. Lätku diaal tin gɔw kɛn gääykɛ-ɛ naath. A puɔny te̱e̱ Ji̠n mi̠ ci̠ nhial cak kɛnɛ piny. Mi̠ ci̠ nhial cak puɔny kɛɛliw ɛ Duŋdu. <br><br> 3. A puɔny te̱e̱ Ji̠n mi̠ ci̠ nhial cak kɛnɛ piny. Nhök kɔ̱cä lɔaacdu tëë thi̠n a thiɛl pek. A puɔny te̱e̱ Ji̠n mi̠ ci̠ nhial cak kɛnɛ piny. Mi̠ ci̠ nhial cak puɔny kɛɛliw ɛ Duŋdu. <br><br>4. A puɔny te̱e̱ Ji̠n mi̠ ci̠ nhial cak kɛnɛ piny. Ji̠n di̠tni̠ Ji̠n kä kɛn ŋɔaani̠ diaal. A puɔny te̱e̱ Ji̠n mi̠ ci̠ nhial cak kɛnɛ piny. Mi̠ ci̠ nhial cak puɔny kɛɛliw ɛ Duŋdu. "</p>
+                    <a href="#" data-hymn-id="1" class="view-hymn">Kɛɛt Di̠t</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hymns Listing Page -->
+        <section id="hymns-page" class="page">
+            <div class="container">
+                <h2>Gua̱th Din Diaal</h2>
+                <div class="filters">
+                    <select id="category-filter">
+                        <option value="">Da̱kni̠ Din Diaal</option>
+                        <option value="advent">Praise Songs</option>
+                        <option value="christmas">Worship Songs</option>
+                        <option value="easter">Second Advent Songs</option>
+                        <option value="thanksgiving">Thanksgiving Songs</option>
+                        <option value="easter">Pathfinder's Songs</option>
+                        <option value="thanksgiving">Marriage Songs</option>
+                    </select>
+                    <input type="text" id="hymn-search" placeholder="Search by title or first line...">
+                </div>
+                <div id="hymns-list">
+                    <!-- Hymns will be loaded here by JavaScript -->
+                </div>
+                <div id="pagination">
+                    <!-- Pagination controls -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Hymn Detail Page -->
+        <section id="hymn-detail-page" class="page">
+            <div class="container">
+                <button id="back-to-list" class="back-btn"><i class="fas fa-arrow-left"></i> Back to List</button>
+                <div id="hymn-detail">
+
+                    <!-- Hymn detail will be loaded here by JavaScript -->
+                </div>
+                <div class="hymn-controls">
+                    <button id="prev-hymn">Di̠i̠t Nhiam</button>
+                    <button id="next-hymn">Di̠i̠t jɔak</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about-page" class="page">
+            <div class="container">
+                <h3>About This Hymnal</h3>
+                <p>The Nuer SDA Hymnal App is a digital worship companion designed to preserve and share the rich hymn traditions of the Nuer Seventh-day Adventist community. Built with care and authenticity, it brings together faith, culture, and technology in one accessible platform.</p>
+                <h3>The Purpose</h3>
+                <p>This app was created to make worship more immersive and inclusive for Nuer-speaking believers worldwide. Whether at home, in church, or on the go, the hymnal is always within reach—helping families, choirs, and congregations connect with God through music.</p>
+                <h3>The Vision</h3>
+                <p>The Nuer SDA Hymnal App is more than a digital songbook—it is a living archive of faith. Future updates will expand features, add more hymns, and strengthen community engagement, ensuring that the songs of worship continue to inspire generations to come.</p>
+                <p>We hope this resource is a blessing to you.</p>
+                
+                <h3>About Author</h3>
+                    I am Gatbel Duop Chol, creator of the Nuer SDA Hymnal App. My mission is to preserve Nuer worship
+                    traditions through technology, making hymns accessible with audio, search, and responsive design for
+                    believers everywhere.
+
+                    <h3>Tagline</h3>
+                   <p>"Connecting faith and culture through Nuer hymns, anytime, anywhere."</p>
+            </div>
+        </section>
+
+        <!-- Settings Page -->
+        <section id="settings-page" class="page">
+            <div class="container">
+                <h2>Settings</h2>
+                <div class="setting">
+                    <label for="theme-select">Theme:</label>
+                    <select id="theme-select">
+                        <option value="light">Buay</option>
+                        <option value="dark">Muth</option>
+                    </select>
+                </div>
+                <div class="setting">
+                    <label for="font-size">Font Size:</label>
+                    <input type="range" id="font-size" min="12" max="24" value="16">
+                    <span id="font-size-value">16px</span>
+                </div>
+                <div class="setting">
+                    <button id="reset-settings">Reset to Defaults</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 SDA Hymnal. All rights reserved.</p>
+        </div>
+        <section class="footer">
+
+            <div class="icons">
+                <a href="https://web.facebook.com/gatbel.duop.chol">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="https://github.com/gatbelduop">
+                    <i class="fa fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/gatbel-duop-chol">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+                <a href="https://x.com/GChol63991">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a href="https://www.youtube.com/@gatbelduop">
+                    <i class="fa fa-youtube"></i>
+                </a>
+            </div>
+            <p>Made with <i class="fa fa-heart-o"></i> by Gatbel Duop Chol</p>
+        </section>
+
+    </footer>
+
+    <script src="new.js"></script>
+</body>
+
+</html>
