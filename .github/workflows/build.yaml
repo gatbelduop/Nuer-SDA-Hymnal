@@ -3,7 +3,7 @@ name: Build and Release Android APK
 on:
   push:
     branches: [ "main" ]
-  workflow_dispatch:   # allows manual trigger
+  workflow_dispatch:
 
 jobs:
   build:
@@ -24,7 +24,12 @@ jobs:
     - name: Create Cordova Project
       run: |
         cordova create hymnbook com.example.hymnbook HymnBook
-        cp -r www hymnbook/www
+        # Ensure www folder exists in repo before copying
+        if [ -d "www" ]; then
+          cp -r www hymnbook/www
+        else
+          echo "⚠️ No www folder found in repo. Please add your HTML/CSS/JS files."
+        fi
         cd hymnbook
         cordova platform add android
 
