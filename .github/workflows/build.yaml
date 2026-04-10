@@ -5,6 +5,9 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+permissions:
+  contents: write   # 👈 This is required for creating releases
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,7 +27,6 @@ jobs:
     - name: Create Cordova Project
       run: |
         cordova create hymnbook com.example.hymnbook HymnBook
-        # Ensure www folder exists in repo before copying
         if [ -d "www" ]; then
           cp -r www hymnbook/www
         else
