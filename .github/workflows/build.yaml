@@ -1,0 +1,51 @@
+name: Build and Release Android APK
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:   # allows manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Cordova
+      run: npm install -g cordova
+
+    - name: Create Cordova Project
+      run: |
+        cordova create hymnbook com.example.hymnbook HymnBook
+        cp -r www hymnbook/www
+        cd hymnbook
+        cordova platform add android
+
+    - name: Build APK
+      run: |
+        cd hymnbook
+        cordova build android
+
+    - name: Upload APK Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: hymnbook-apk
+        path: hymnbook/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v1.0.${{ github.run_number }}
+        name: HymnBook Release v1.0.${{ github.run_number }}
+        draft: false
+        prerelease: false
+        files: hymnbook/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
