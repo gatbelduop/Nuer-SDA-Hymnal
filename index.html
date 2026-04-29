@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuer SDA Hymnal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="Sdaicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://www.googleapis.com/webfonts/v1/webfonts?subset=subset_name">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script >// Run this when the page loads
+   document.addEventListener("DOMContentLoaded", function () {
+        // Create popup container
+        const popup = document.createElement("div");
+        popup.innerHTML = "<p>📘 Welcome to the Nuer SDA Hymnal App!</p>";
+        popup.style.position = "fixed";
+        popup.style.top = "10%"; // slightly above center
+        popup.style.left = "50%";
+        popup.style.transform = "translateX(-50%) scale(0.9)";
+        popup.style.width = "90%"; // wide rectangle across screen
+        popup.style.maxWidth = "900px"; // limit on very large screens
+        popup.style.background = "linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)";
+        popup.style.padding = "0px 0px";
+        popup.style.border = "4px solid #4A90E2";
+        popup.style.borderRadius = "12px";
+        popup.style.zIndex = "1000";
+        popup.style.boxShadow = "0 10px 15px rgba(0,0,0,0.3)";
+        popup.style.textAlign = "center";
+        popup.style.fontFamily = " Arial, Segoe UI, sans-serif";
+        popup.style.opacity = "0";
+        popup.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+
+        // Create close button
+        const closeBtn = document.createElement("button");
+        closeBtn.innerText = "Close";
+        closeBtn.style.marginTop = "px";
+        closeBtn.style.padding = "3px 16px";
+        closeBtn.style.background = "#4A90E2";
+        closeBtn.style.color = "#fff";
+        closeBtn.style.border = "none";
+         popup.style.height = "15%"; // thin rectangle
+        closeBtn.style.borderRadius = "6px";
+        closeBtn.style.cursor = "pointer";
+        closeBtn.style.fontSize = "12px";
+        closeBtn.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
+
+        // Close popup when button is clicked
+        closeBtn.addEventListener("click", function () {
+            popup.style.opacity = "0";
+            popup.style.transform = "translateX(-50%) scale(0.9)";
+            setTimeout(() => popup.remove(), 800);
+        });
+
+        // Add button to popup
+        popup.appendChild(closeBtn);
+
+        // Add popup to page
+        document.body.appendChild(popup);
+
+        // Trigger entrance animation
+        setTimeout(() => {
+            popup.style.opacity = "1";
+            popup.style.transform = "translateX(-50%) scale(1)";
+        }, 50);
+
+        // Auto-close after 10 seconds with fade-out
+        setTimeout(function () {
+            if (document.body.contains(popup)) {
+                popup.style.opacity = "0";
+                popup.style.transform = "translateX(-50%) scale(0.9)";
+                setTimeout(() => popup.remove(), 800);
+            }
+        }, 3000);
+    });
+    
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Sdaicon.png" alt="SDA Hymnal Logo" class="logo-img">
+            </div>
+
+            <h1><i class="fas fa-book"></i> Nuer SDA Hymnal</h1>
+
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="#" data-page="home">Home</a></li>
+                    <li><a href="#" data-page="hymns">Hymns</a></li>
+                    <li><a href="#" data-page="contacts">Contacts</a></li>
+                    <li><a href="#" data-page="about">About</a></li>
+                    <li><a href="#" data-page="settings">Settings</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" id="global-search" placeholder="Search hymns...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Hamburger button -->
+            <button id="hamburger" class="hamburger">&#9776;</button>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- Home Page -->
+        <section id="home-page" class="page active">
+            <div class="hero">
+        
+                <button id="explore-btn">We̱r Rɛy Di̠n Diaal</button>
+            </div>
+
+            <div class="featured-hymn">
+                <h3>Kɛɛt Diit Cia̱ŋ Ɛ Wälɛ</h3>
+
+                <!-- Clean container for JS injection -->
+                <div id="song-of-the-day"></div>
+
+                <div class="hymn-card">
+                    <a href="#" data-hymn-id="1" class="view-hymn">Kɛɛt Di̠t</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Hymns Listing Page -->
+        <section id="hymns-page" class="page">
+            <div class="container">
+                <h2>Gua̱th Din Diaal</h2>
+                <div class="filters">
+                    <select id="category-filter">
+                        <option value="">Da̱kni̠ Din Diaal</option>
+                        <option value="advent">Praise Songs</option>
+                        <option value="christmas">Worship Songs</option>
+                        <option value="easter">Second Advent Songs</option>
+                        <option value="thanksgiving">Thanksgiving Songs</option>
+                        <option value="easter">Pathfinder's Songs</option>
+                        <option value="thanksgiving">Marriage Songs</option>
+                    </select>
+                    <input type="text" id="hymn-search" placeholder="Search by title or first line...">
+                </div>
+                <div id="hymns-list">
+                    <!-- Hymns will be loaded here by JavaScript -->
+                </div>
+                <div id="pagination">
+                    <!-- Pagination controls -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Hymn Detail Page -->
+        <section id="hymn-detail-page" class="page">
+            <div class="container">
+                <button id="back-to-list" class="back-btn"><i class="fas fa-arrow-left"></i> Back to List</button>
+                <div id="hymn-detail">
+
+                    <!-- Hymn detail will be loaded here by JavaScript -->
+                </div>
+                <div class="hymn-controls">
+                    <button id="prev-hymn">Di̠i̠t Nhiam</button>
+                    <button id="next-hymn">Di̠i̠t jɔak</button>
+                </div>
+            </div>
+        </section>
+
+        <!--Highlight Page-->
+
+        <!-- About Page -->
+        <section id="about-page" class="page">
+            <div class="container">
+                <h3>About This Hymnal</h3>
+                <p>The Nuer SDA Hymnal App is a digital worship companion designed to preserve and share the rich hymn
+                    traditions of the Nuer Seventh-day Adventist community. Built with care and authenticity, it brings
+                    together faith, culture, and technology in one accessible platform.</p>
+                <h3>The Purpose</h3>
+                <p>This app was created to make worship more immersive and inclusive for Nuer-speaking believers
+                    worldwide. Whether at home, in church, or on the go, the hymnal is always within reach—helping
+                    families, choirs, and congregations connect with God through music.</p>
+                <h3>The Vision</h3>
+                <p>The Nuer SDA Hymnal App is more than a digital songbook—it is a living archive of faith. Future
+                    updates will expand features, add more hymns, and strengthen community engagement, ensuring that the
+                    songs of worship continue to inspire generations to come.</p>
+                <p>We hope this resource is a blessing to you.</p>
+
+                <h3>About Author</h3>
+                <p>
+                    I am <strong>Gatbel Duop Chol</strong>, an IT professional and digital innovator passionate about
+                    merging faith, culture, and technology.
+                    Born in Akobo, South Sudan and educated in Information Technology at Aksum University, Ethiopia, my
+                    journey has been shaped by a commitment
+                    to inclusive education and authentic digital solutions.
+                </p>
+
+                <p>
+                    As the creator of the <em>Nuer SDA Hymnal App</em>, my mission is to preserve and share the rich
+                    worship traditions of the Nuer community
+                    through accessible technology. This app integrates modern features such as search, responsive
+                    design, audio support, and highlighted songs
+                    to make worship immersive and inclusive for believers worldwide.
+                </p>
+
+                <p>
+                    Beyond technology, I believe in building tools that strengthen community, empower worship, and
+                    connect generations. Future updates will
+                    expand hymn collections, add audio recordings, and enhance personalization — ensuring that Nuer
+                    hymns remain a living archive of faith.
+                </p>
+
+                <p>
+                    <strong>Tagline:</strong> "Connecting faith and culture through Nuer hymns, anytime, anywhere."
+                </p>
+
+            </div>
+        </section>
+
+        <section id="contacts-page" class="page">
+            <div class="container">
+                <h2>Contact</h2>
+
+                <p>
+                    I warmly invite you to connect with me through these channels. Whether you wish to share feedback,
+                    collaborate on faith-driven projects,
+                    or simply exchange words of encouragement, your voice matters. This hymnal app was created to
+                    glorify God and strengthen our worship community,
+                    and I believe true connection happens when we walk together in faith and fellowship.
+                    Please reach out through the links below — I look forward to hearing from you and growing together
+                    in Christ.
+                </p>
+                <p style="text-align:center; margin-top:20px; font-style:italic; color:#555;">
+                    "Therefore encourage one another and build each other up." — 1 Thessalonians 5:11
+                </p>
+
+
+                <!-- Contact List -->
+                <ul class="contact-list">
+                    <li><i class="fas fa-envelope"></i> Email: <a
+                            href="mailto:gatbelduopchol@gmail.com">gatbelduopchol@gmail.com</a></li>
+                    <li><i class="fas fa-phone"></i> Phone: <a href="tel:+251960446607">+251 960446607</a></li>
+                    <li><i class="fas fa-globe"></i> Website: <a href="https://gatbelduop.github.io/Info/"
+                            target="_blank">www.gatbelduop.github.i/Info/</a></li>
+                </ul>
+            </div>
+        </section>
+
+
+
+        <!-- Settings Page -->
+        <section id="settings-page" class="page">
+            <div class="container">
+                <h2>Settings</h2>
+                <div class="setting">
+                    <label for="theme-select">Theme:</label>
+                    <select id="theme-select">
+                        <option value="light">Buay</option>
+                        <option value="dark">Muth</option>
+                    </select>
+                </div>
+                <div class="setting">
+                    <label for="font-size">Font Size:</label>
+                    <input type="range" id="font-size" min="12" max="24" value="16">
+                    <span id="font-size-value">16px</span>
+                </div>
+                <div class="setting">
+                    <button id="reset-settings">Reset to Defaults</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+        </div>
+        <section class="footer">
+            <p>Made with <i class="fa fa-heart-o"></i> by Gatbel Duop Chol</p>
+
+            <div class="social">
+                <a href="https://linkedin.com/in/gatbel-duop-chol" class="linkedin"><i class='bx bxl-linkedin-square'></i></a>
+                <a href="https://github.com/gatbelduop" class="github"><i class='bx bxl-github'></i></a>
+                <a href="https://web.facebook.com/gatbel.duop.chol" class="facebook"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="https://x.com/GChol63991" class="twitter"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.youtube.com/@gatbelduop" class="youtube"><i class='bx bxl-youtube'></i></a>
+            </div>
+        </section>
+        <p>&copy; 2026 SDA Hymnal. All rights reserved.</p>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

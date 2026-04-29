@@ -1,0 +1,738 @@
+/* Base styles */
+body {
+    margin: 0;
+    font-family: "Nuer", "Lucida Sans Unicode", Verdana, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+@font-face {
+  font-family: 'Nuer';
+  src: url('/fonts/Nuer.woff2') format('woff2'),
+       url('/fonts/Nuer.woff') format('woff'),
+       url('/fonts/Nuer.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Nuer', sans-serif;
+}
+
+header {
+    background: #2c3e50;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+.logo-img {
+    height: 50px;
+    margin-right: 1rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.search-bar input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    flex: 1;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #e67e22;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background: #d35400;
+}
+
+/* Page sections */
+.page {
+    display: none;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.page.active {
+    display: block;
+}
+
+.hero {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: #ecf0f1;
+    border-radius: 8px;
+}
+.hero{
+   color: #2c3e50;
+}
+
+.hero h2 {
+    margin-bottom: 1rem;
+}
+
+.hero button {
+    padding: 0.75rem 1.5rem;
+    background: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background: #1e8449;
+}
+
+/* Hymn cards */
+.hymn-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hymn-card h4 {
+    margin-top: 0;
+}
+
+.hymn-card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hymn-card a:hover {
+    text-decoration: underline;
+}
+
+/* Light mode (default) */
+#pagination button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #2980b9;
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Active button */
+#pagination button.active {
+    background: #2980b9;
+    color: #fff;
+}
+
+/* Dark mode */
+body.dark-mode #pagination button {
+    background: #000;   /* dark background */
+    color: #fff;        /* light text */
+    border: 1px solid #4da6ff; /* lighter border for contrast */
+}
+
+body.dark-mode #pagination button.active {
+    background: #4da6ff;
+    color: #000; /* optional: dark text on light blue */
+}
+
+/* Light mode hymn list styling */
+#hymns-list {
+    background-color: #000;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+/* Dark mode override: keep it light */
+body.dark #hymn-detail-page {
+    background-color: #000;  /* force white background */
+    color: #fff;             /* force black text */
+}
+/* Hymn card styling */
+.hymn-card {
+    background: #fff;       /* white background */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: #000;            /* force black text */
+}
+
+
+/* Ensure headings and paragraphs inside hymn cards are black */
+.hymn-card h4,
+.hymn-card p {
+    color: #000;
+}
+
+/* Ensure links are black too */
+.hymn-card a {
+    color: rgba(7, 200, 7, 0.861);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hymn-card a:hover {
+    text-decoration: underline;
+}
+
+
+/* Hymn detail */
+.back-btn {
+    background: #34495e;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.hymn-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.hymn-controls button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #27ae60;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hymn-controls button:hover {
+    background: #1e8449;
+}
+
+/* Settings */
+.setting {
+    margin-bottom: 1rem;
+}
+
+.setting label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+#reset-settings {
+    background: #c0392b;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#reset-settings:hover {
+    background: #922b21;
+}
+
+/* Footer */
+footer {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Themes */
+body.light {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+body.dark {
+    background: #1c1c1c;
+    color: #ffffff;
+}
+
+body.dark header,
+body.dark footer {
+   color: #ffffff;
+}
+body.dark hero{
+color: #000;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        ;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .search-bar input {
+        flex: 1;
+    }
+
+    .hero {
+        padding: 1rem;
+    }
+
+    .hymn-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+        display: block;
+        align-items: center;
+    }
+
+    .logo-img {
+        height: 40px;
+        align-items: flex-start;
+    }
+
+    #nav-menu ul {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hamburger {
+        display: none;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .search-bar input {
+        font-size: 0.9rem;
+    }
+
+    .search-bar button {
+        font-size: 0.9rem;
+    }
+
+    .hero h2 {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* Small screen styles */
+@media (max-width: 768px) {
+
+    /* Add this: standardizes the bar layout */
+    header,
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    h1 {
+        flex-grow: 1;
+        text-align: center;
+        /* Centers the H1 text */
+    }
+
+    .logo-img {
+        height: 40px;
+        order: -1;
+        /* Ensures logo stays on the far left */
+    }
+
+    .hamburger {
+        display: flex;
+        background-color: #ddd;
+        /* Removed manual top/left positioning to let flexbox handle it */
+        order: 1;
+        /* Ensures hamburger stays on the far right */
+        position: absolute;
+        margin-left: 87%;
+        margin-top: 0;
+        margin-bottom: 8%;
+
+    }
+
+    #nav-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        /* Adjusted so it doesn't overlap the bar */
+        left: 0;
+        width: 100%;
+        background: #2c3e50;
+    }
+
+    #nav-menu.active {
+        display: block;
+    }
+
+    #nav-menu ul {
+        flex-direction: column;
+        padding: 1rem;
+    }
+}
+
+/*-------------------Footer-------------*/
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.footer h4 {
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 100;
+}
+
+.icons .fa {
+    color: #f44336;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
+.fa-heart-o {
+    color: #f44336;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+    touch-action: pan-y;
+    /* Allow vertical scroll only */
+}
+
+.page,
+#hymns-list,
+#hymn-detail {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+@media (max-width: 700px) {
+    body {
+        overflow-x: hidden;
+        touch-action: pan-y;
+    }
+
+    .page {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1200px) {
+    body {
+        overflow-x: hidden;
+        touch-action: pan-y;
+    }
+
+    .page {
+        width: 100%;
+    }
+}
+
+/* Text alignment */
+@media (max-width: 480px) {
+
+
+    .page,
+    #hymns-list,
+    #hymn-detail,
+    p,
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 1200px) {
+
+
+    .page,
+    #hymns-list,
+    #hymn-detail,
+    p,
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+    }
+}
+/* Hamburger defaults */
+#hamburger {
+    background: #ffffff;
+    /* white on small screens */
+}
+
+/* Hamburger on big screens */
+@media (min-width: 1024px) {
+    #hamburger {
+        background: none;
+    }
+}
+
+@media (min-width: 700px) {
+    #hamburger {
+        background: none;
+    }
+}
+
+.footer .social {
+    text-align: center;
+    padding: 25px;
+    color: #007f70;
+}
+
+.footer .social a {
+    font-size: 18px;
+    color: #ffffff;
+    border: 2px solid #2c3e50;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    transition: 0.3s ease;
+}
+
+.footer .social a:hover {
+    background-color: #f4433f;
+    color: #fff;
+    transform: scale(1.1) translate(-10px);
+    box-shadow: 0 0 15px #01a494,
+        0 0 25px #01a494,
+        0 0 35px #01a494;
+}
+
+/* Base Song of the Day card */
+#song-of-the-day {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 700px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: "Segoe UI", Arial, sans-serif;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+#song-of-the-day h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#song-of-the-day h3 {
+    margin-bottom: 10px;
+}
+
+#song-of-the-day p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+#song-of-the-day div {
+    margin-top: 15px;
+    line-height: 1.6;
+    font-size: 16px;
+    white-space: pre-line;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+/* Hymns list box styling */
+#hymns-list {
+    background-color: #121212;  /* dark background */
+    padding: 20px;
+    border-radius: 10px;
+    color: #f5f5f5;             /* light text for contrast */
+}
+
+/* Default hymn list styling (light mode) */
+#hymns-list {
+    background-color: #f9f9f9;  /* or whatever your light background is */
+    padding: 20px;
+    border-radius: 10px;
+    color: #333;
+}
+
+/* Dark mode hymn list styling */
+body.dark-mode #hymns-list {
+    background-color: #121212;  /* dark background */
+    color: #f5f5f5;             /* light text for readability */
+}
+
+/* ===========================
+   Contact Section Styling
+   =========================== */
+
+#contacts-page {
+  padding: 60px 20px;
+  background: #f5f7fa;
+  border-top: 2px solid #e0e0e0;
+}
+
+#contacts-page h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#contacts-page p {
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Social Media Icon Bar */
+.social-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.social-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 30%;
+  background: #0066cc;
+  color: #fff;
+  font-size: 22px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.social-bar a:hover {
+  background: #004080;
+  transform: scale(1.1);
+}
+
+/* Contact List */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-list li {
+  font-size: 17px;
+  margin: 14px 0;
+  display: flex;
+  align-items: center;
+  color: #333;
+  background: #fff;
+  padding: 12px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.contact-list li:hover {
+  transform: translateX(5px);
+}
+
+.contact-list li i {
+  margin-right: 12px;
+  color: #0066cc;
+  font-size: 20px;
+}
+
+.contact-list a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-list a:hover {
+  color: #004080;
+  text-decoration: underline;
+}
+
